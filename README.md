@@ -9,7 +9,7 @@ Purpose
 
 Download  
 1) Open terminal  
-2) Execute the command "git clone https://github.com/cmusv-sc/18655-Fall2016-Team7.git"  
+2) Execute the command "git clone https://github.com/manikajan123/Social_Networking_Academia.git"  
 
 Install  
 1) Download and install the most recent sbt or activator from play official website  
