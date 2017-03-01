@@ -1,4 +1,4 @@
-# 18655-Fall2016-Team7
+# Networking Platform for Academia
 
 Purpose  
 1) Progress of web technologies has enabled us to offer expertise in different domains.   
