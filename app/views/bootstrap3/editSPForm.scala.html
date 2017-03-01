@@ -1,0 +1,46 @@
+
+@(reverseRoute: play.api.mvc.Call,userIdField: Field, servicenameField:Field, educationField: Field, jobField: Field,projectField: Field
+        , publicationField: Field, researchAreasField: Field, profServicesField: Field )
+
+<div class="container">
+  <div id="userArea" class="row">
+    <div class="col-mid-12">
+      <form id="userForm" action="updateSP" method="post">
+        <div class="form-group">
+          <fieldset>
+            <label>User Id</label>
+            <input id="@userIdField.id" name="@userIdField.name" value="@userIdField.value.getOrElse("")" class="form-control">
+
+
+            <label>Service Name</label>
+            <input id="@servicenameField.id" name="@servicenameField.name" value="@servicenameField.value.getOrElse("")" class="form-control">
+
+
+            <label>Job</label>
+            <input id="@jobField.id" name="@jobField.name" value="@jobField.value.getOrElse("")" class="form-control">
+
+            <label>Education</label>
+            <input id ="@educationField.id" name="@educationField.name" value="@educationField.value.getOrElse("")" class="form-control">
+
+
+            <label>Project</label>
+            <input id ="@projectField.id" name="@projectField.name" value="@projectField.value.getOrElse("")" class="form-control">
+
+
+            <label>Publication</label>
+            <input id ="@publicationField.id" name="@publicationField.name" value="@publicationField.value.getOrElse("")" class="form-control">
+
+            <label>Research</label>
+            <input id ="@researchAreasField.id" name="@researchAreasField.name" value="@researchAreasField.value.getOrElse("")" class="form-control">
+
+            <label>Professional Services</label>
+            <input id ="@profServicesField.id" name="@profServicesField.name" value="@profServicesField.value.getOrElse("")" class="form-control">
+
+
+          </fieldset>
+          <input id="clickMe" type="button" value="Submit" onclick="submit()" class="btn btn-primary">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

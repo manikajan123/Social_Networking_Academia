@@ -1,0 +1,26 @@
+@(page: String, isLoggedIn: Boolean,sp:Int, userInfo: UserInfo)
+
+@Main(page, isLoggedIn,sp, userInfo) {
+  <div class="container">
+    <div class="row " >
+         <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login <span style="padding-left:500px;"></span>Register</h2>
+        <br>
+         <a href="@routes.Application.login( )"class="btn btn-success btn-lg active" role="button">Service User</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <a href="@routes.Application.login()"class="btn btn-success btn-lg active" role="button">Service Provider</a>
+        <span style="padding-left:300px;"></span>
+
+        <a href="@routes.UserRegister.register()"class="btn btn-success btn-lg active" role ="button">Register now</a>
+        <br>
+        <br>
+
+         <a href="@routes.Application.login()"class="btn btn-success btn-lg active" role="button">Administrator</a>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+         <a href="@routes.Application.login()"class="btn btn-success btn-lg active" role="button">Anonymous User</a>
+
+   </div>
+
+  </div>
+}

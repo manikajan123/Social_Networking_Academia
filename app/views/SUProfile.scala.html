@@ -1,0 +1,31 @@
+@(page: String, isLoggedIn: Boolean,sp:Int, userInfo: UserInfo, profileUserList: List [ServiceUser] )
+
+@Main(page, isLoggedIn,sp, userInfo) {
+  <div class="container">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <h3> Profile</h3>
+
+            <table class="table">
+              <tr>
+                <th>UserId</th>
+                <th>Requested Keywords</th>
+                <th>Ongoing Projects</th>
+                <th>Finished Projects</th>
+              </tr>
+              @for(profileUser <- profileUserList) {
+              <tr>
+                <td>@profileUser.getUserId</td>
+                <td>@profileUser.getRequested_keywords</td>
+                <td>@profileUser.getOngoing_projects</td>
+                <td>@profileUser.getFinished_projects</td>
+              </tr>
+              }
+            </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+}

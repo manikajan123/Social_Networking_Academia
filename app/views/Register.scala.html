@@ -1,0 +1,9 @@
+@(page: String, userInfo: UserInfo, registerForm: Form[views.formdata.RegisterFormData])
+@import bootstrap3._
+
+
+@Main(page, false,0, userInfo) {
+
+  @registerform(routes.UserRegister.postRegister(), registerForm("userId"), registerForm("email"), registerForm("password"), registerForm("role"), registerForm("question"), registerForm("sanswer"))
+
+  }

@@ -1,0 +1,48 @@
+
+@(reverseRoute: play.api.mvc.Call,servicenameField:Field, educationField: Field, jobField: Field,projectField: Field
+        , publicationField: Field, researchAreasField: Field, profServicesField: Field )
+
+<div class="container">
+  <div id="userArea" class="row">
+    <div class="col-mid-12">
+      <form id="userForm" action="servicepublish" method="post">
+        <div class="form-group">
+          <fieldset>
+
+            <label>Serice Name</label>
+            <input id="@servicenameField.id" name="@servicenameField.name" value="@servicenameField.value.getOrElse("")" class="form-control">
+
+
+            <label>Job</label>
+            <input id="@jobField.id" name="@jobField.name" value="@jobField.value.getOrElse("")" class="form-control">
+
+            <label>Education</label>
+            <input id ="@educationField.id" name="@educationField.name" value="@educationField.value.getOrElse("")" class="form-control">
+
+
+            <label>Project</label>
+            <input id ="@projectField.id" name="@projectField.name" value="@projectField.value.getOrElse("")" class="form-control">
+
+
+            <label>Publication</label>
+            <input id ="@publicationField.id" name="@publicationField.name" value="@publicationField.value.getOrElse("")" class="form-control">
+
+            <label>Research</label>
+            <input id ="@researchAreasField.id" name="@researchAreasField.name" value="@researchAreasField.value.getOrElse("")" class="form-control">
+
+
+            <label>Professional Services</label>
+            <select id="@profServicesField.id" name="@profServicesField.name" value="@profServicesField.value.getOrElse("")">
+              <option id = "1">Consultant</option>
+              <option id = "2">Design</option>
+              <option id = "3">Development</option>
+              <option id = "4">Proof-Reading</option>
+            </select>
+
+          </fieldset>
+          <input id="clickMe" type="button" value="Submit" onclick="submit()" class="btn btn-primary">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

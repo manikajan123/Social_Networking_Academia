@@ -1,0 +1,33 @@
+@(reverseRoute: play.api.mvc.Call, targetField: Field, subjectField: Field, contentField: Field)
+<form id="emailForm" action="email/sendemail" method="post">
+  <div class="col-md-12">
+    <div class="form-group">
+      <div class="floatlabel-wrapper" style="position:relative">
+        <label for="tokenfield" class="label-floatlabel float-label " style="position: absolute; top: 20px; left: 12px; display: none; opacity: 0; transition: all 0.3s ease-in-out;">To</label>
+        <input id="@targetField.id" name="@targetField.name" value="@targetField.value.getOrElse("")" type="text" class="form-control" placeholder="To" style="padding-top: 6px; transition: all 0.3s ease-in-out;">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="floatlabel-wrapper" style="position:relative">
+        <label for="51" class="label-floatlabel float-label " style="position: absolute; top: 20px; left: 12px; display: none; opacity: 0; transition: all 0.3s ease-in-out;">Cc</label>
+        <input type="text" class="form-control" placeholder="Cc" style="padding-top: 6px; transition: all 0.3s ease-in-out;">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="floatlabel-wrapper" style="position:relative">
+        <label for="83" class="label-floatlabel float-label " style="position: absolute; top: 20px; left: 12px; display: none; opacity: 0; transition: all 0.3s ease-in-out;">Bcc</label>
+        <input type="text" class="form-control" placeholder="Bcc" style="padding-top: 6px; transition: all 0.3s ease-in-out;">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="floatlabel-wrapper" style="position:relative">
+        <label for="18" class="label-floatlabel float-label " style="position: absolute; top: 20px; left: 12px; display: none; opacity: 0; transition: all 0.3s ease-in-out;">Subject</label>
+        <input id="@subjectField.id" name="@subjectField.name" value="@subjectField.value.getOrElse("")" type="text" class="form-control" placeholder="Subject" style="padding-top: 6px; transition: all 0.3s ease-in-out;">
+      </div>
+    </div>
+    <textarea id="@contentField.id" name="@contentField.name" value="@contentField.value.getOrElse("")" class="form-control" placeholder="message"></textarea>
+    <div class="btn-send">
+      <button class="btn btn-success btn-lg" onclick="submit()"><span class="glyphicon glyphicon-send"></span> Send</button>
+    </div>
+  </div>
+</form>

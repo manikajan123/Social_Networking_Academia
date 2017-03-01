@@ -1,0 +1,9 @@
+@(page: String,isLoggedIn: Boolean,sp:Int, userInfo: UserInfo, spForm: Form[views.formdata.ServiceProviderinfo])
+@import bootstrap3._
+
+
+@Main(page,isLoggedIn,sp, userInfo) {
+
+  @servicepublishform(routes.UserRegister.postRegister(),spForm("servicename"), spForm("education"), spForm("job"), spForm("project"), spForm("publication"), spForm("researchAreas"), spForm("profServices"))
+
+}

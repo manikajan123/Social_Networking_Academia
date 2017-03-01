@@ -1,0 +1,80 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+GET     /login                      controllers.Application.login()
+POST    /login                      controllers.Application.postLogin()
+GET     /profile                    controllers.Application.profile()
+GET     /logout                      controllers.Application.logout()
+
+#Service Publication -form to submit
+GET     /servicepublish                     controllers.ServicePublish.publishService()
+POST    /servicepublish                     controllers.ServicePublish.postPublishService()
+GET     /serviceProviderInfo                controllers.ServicePublish.showInfo()
+GET     /serviceProviderInfo/:expertise     controllers.ServicePublish.showExpertise(expertise:String)
+GET     /serviceProviderInfo/SP           controllers.ServicePublish.showKeyWords(keyword1: String )
+
+#GET    /editServiceProvider                controllers.ServicePublish.editSP()
+#POST   /updateServiceProvider                controllers.ServicePublish.updateSP(userID : String)
+
+
+
+#Report the bugs
+GET     /reportbugs                           controllers.ReportBugs.reportBug()
+POST    /reportbugs/post                      controllers.ReportBugs.postReportBug()
+GET     /showAllBugs                          controllers.ReportBugs.showAllBugs()
+
+#rating the Service Provider
+
+GET        /serviceProviderInfo/rate/:userId        controllers.RateServiceProvider.register(userId: String)
+POST      /serviceProviderInfo/rate/rate/post       controllers.RateServiceProvider.postRatings()
+GET        /serviceProviderInfo/viewrate/:userId    controllers.RateServiceProvider.viewRatings(userId: String)
+
+#projects- add and show
+
+GET     /project                            controllers.ProjectController.index()
+GET     /project/info                       controllers.ProjectController.searchProjectByStatus(i: Int)
+GET     /project/updateStatus               controllers.ProjectController.setProjectStatus(status: Int, name: String)
+
+GET     /project/form                       controllers.ProjectController.getForm()
+POST    /project/projectadd                 controllers.ProjectController.addProject()
+
+GET     /project/list                       controllers.ProjectController.listProject()
+GET     /project/get                        controllers.ProjectController.getProject(id: Int)
+PUT     /project/update                     controllers.ProjectController.updateProject(id: Int)
+DELETE  /project/delete                     controllers.ProjectController.deleteProject(id: Int)
+GET     /project/updateStatus               controllers.ProjectController.setProjectStatus(status: Int, name: String)
+
+
+GET     /searchproject                      controllers.ProjectController.searchProject(name: String)
+
+#Registering the User
+GET     /register                            controllers.UserRegister.register
+POST    /Register/postRegister               controllers.UserRegister.postRegister
+
+
+#service user info
+GET     /serviceUserInfo                    controllers.ServiceUserInfo.showInfo
+GET     /searchKeywords                     controllers.ServicePublish.showTopicSearchServices(topic: String)
+
+
+#EmailController
+GET     /email                               controllers.EmailController.email()
+POST    /email/sendemail                     controllers.EmailController.postEmail()
+
+
+#Admin
+GET     /ShowALL                              controllers.Admin.listAllUsers()
+GET     /ShowAll/update               controllers.Admin.setUserStatus(status: Int, name: String)
+
+
+
+#add paper
+GET     /paperForm                          controllers.PaperController.paperForm()
+POST    /postAddPaper                       controllers.PaperController.postAddPaper()
+GET     /listPaper                          controllers.PaperController.listProject()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

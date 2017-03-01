@@ -1,0 +1,82 @@
+@(page: String, isLoggedIn: Boolean,sp:Int, userInfo: UserInfo, serviceprovider: List [ServiceProvider])
+
+@import bootstrap3._
+
+
+@Main(page, isLoggedIn,sp, userInfo) {
+  <div class="container">
+    <div class="col-sm-10 col-sm-offset-3">
+
+      <div class="navbar-form navbar-right" >
+        <div class="form-group">
+          <input id="searchContent" type="text" name="keyword1" placeholder="Keyword Search" class="form-control">
+        </div>
+        <button id="searchButton"  class="btn btn-success">Search</button>
+      </div>
+
+      Rank By :
+      <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Expertise
+        <span class="caret"></span></button>
+
+      <ul class="dropdown-menu">
+        <li><a href="@routes.ServicePublish.showExpertise("Consultant")">Consultant</a></li>
+        <li><a href="@routes.ServicePublish.showExpertise("Design")">Design</a></li>
+        <li><a href="@routes.ServicePublish.showExpertise("Development")">Development</a></li>
+        <li><a href="@routes.ServicePublish.showExpertise("Proof-Reading")">Proof-Reading</a></li>
+      </ul>
+
+      <a href="/"class="btn btn-success btn-lg active" role="button">Popularity</a>
+      <a href="/"class="btn btn-success btn-lg active" role="button">Ranking</a>
+
+
+
+      </div>
+
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <h2> Service Provider Info.</h2>
+        <ul>
+          <table class="table">
+            <tr>
+              <th>UserId</th>
+              <th>Service Name</th>
+              <th>Job</th>
+              <th>Education</th>
+              <th>Project</th>
+              <th>Publication</th>
+              <th>ResearchAreas</th>
+
+              <th>Services</th>
+              <th>Rate</th>
+              <th>View Rating</th>
+            </tr>
+        @for(provider <- serviceprovider) {
+          <tr>
+            <td>@provider.getuserId()</td>
+            <td>@provider.getserviceName()</td>
+            <td>@provider.getjob()</td>
+            <td>@provider.geteducation()</td>
+            <td>@provider.getproject()</td>
+            <td>@provider.getpublication()</td>
+            <td>@provider.getResearchAreas</td>
+            <td>@provider.getProfServices</td>
+            @if(provider.getuserId() != userInfo.getUserId()) {
+              <td><a href="@routes.RateServiceProvider.register(provider.getuserId)" class="btn btn-success btn-sm active" role ="button" >
+                Rate</a>
+              </td>
+            }
+            @if(provider.getuserId() == userInfo.getUserId()) {
+              <td> </td>
+            }
+
+            <td><a href="@routes.RateServiceProvider.viewRatings(provider.getuserId)"class="btn btn-success btn-sm active" role ="button">View Ratings</a>
+            </td>
+          </tr>
+        }
+          </table>
+        </ul>
+      </div>
+    </div>
+  </div>
+}

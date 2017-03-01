@@ -1,0 +1,41 @@
+@(page: String, isLoggedIn: Boolean,sp:Int, userInfo: UserInfo, user: List [UserInfo])
+
+@import bootstrap3._
+
+
+@Main(page, isLoggedIn,sp, userInfo) {
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <h2> All the Users.</h2>
+        <ul>
+          <table class="table">
+            <tr>
+              <th>UserId</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Status</th>
+            </tr>
+            @for(provider <- user) {
+              @if(provider.getRole() != userInfo.getRole() ){
+              <tr>
+                <td>@provider.getUserId</td>
+                <td>@provider.getEmail</td>
+                <td>@provider.getRole</td>
+                <td>@provider.getStatus</td>
+                @if(provider.getStatus == "active") {
+                  <td><a href="@routes.Admin.setUserStatus(2, provider.getUserId)" class="btn btn-success btn-xs active" role="button">BlockUser</a></td>
+                }
+                @if(provider.getStatus == "inactive") {
+                  <td><a href="@routes.Admin.setUserStatus(1, provider.getUserId)" class="btn btn-danger btn-xs active" role="button">Activate</a></td>
+                }
+
+              </tr>
+              }
+            }
+          </table>
+        </ul>
+      </div>
+    </div>
+  </div>
+}

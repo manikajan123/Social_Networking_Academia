@@ -1,0 +1,32 @@
+@(page: String, isLoggedIn: Boolean,sp:Int, userInfo: UserInfo, bug: List [Bug])
+
+@import bootstrap3._
+
+
+@Main(page, isLoggedIn,sp, userInfo) {
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1">
+        <h2> All the Bugs Reported.</h2>
+        <ul>
+          <table class="table">
+            <tr>
+              <th>UserId</th>
+              <th>Project Name</th>
+              <th>Description</th>
+              <th>Status</th>
+            </tr>
+        @for(provider <- bug) {
+          <tr>
+            <td>@provider.getuserid()</td>
+            <td>@provider.getprojectId()</td>
+            <td>@provider.getdescription()</td>
+            <td><button type="button" style="background-color:red">Pending</button></td>
+          </tr>
+          }
+          </table>
+        </ul>
+      </div>
+    </div>
+  </div>
+}

@@ -1,0 +1,9 @@
+@(page: String,  isloggedin: Boolean, isServiceProvider:Int, userinfo: UserInfo, paperForm: Form[views.formdata.PaperFormData])
+@import bootstrap3._
+
+
+@Main(page, isloggedin, isServiceProvider, userinfo) {
+
+  @paperform(routes.PaperController.postAddPaper(), paperForm("title"), paperForm("authors"), paperForm("pages"), paperForm("channel"))
+
+  }

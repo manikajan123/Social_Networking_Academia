@@ -1,0 +1,32 @@
+
+@(reverseRoute: play.api.mvc.Call,userIDField:Field, reqKeywordsField: Field, ongoingField: Field, finishedField: Field)
+
+<div class="container">
+  <div id="userArea" class="row">
+    <div class="col-mid-12">
+      <form id="userForm" action="updateSU" method="post">
+        <div class="form-group">
+          <fieldset>
+
+            <label>User Name</label>
+            <input id="@userIDField.id" name="@userIDField.name" value="@userIDField.value.getOrElse("")" class="form-control">
+
+
+            <label>Requested keywords</label>
+            <input id="@reqKeywordsField.id" name="@reqKeywordsField.name" value="@reqKeywordsField.value.getOrElse("")" class="form-control">
+
+            <label>Ongoing Projects</label>
+            <input id ="@ongoingField.id" name="@ongoingField.name" value="@ongoingField.value.getOrElse("")" class="form-control">
+
+
+            <label>Finished Projects</label>
+            <input id ="@finishedField.id" name="@finishedField.name" value="@finishedField.value.getOrElse("")" class="form-control">
+
+
+          </fieldset>
+          <input id="clickMe" type="button" value="Submit" onclick="submit()" class="btn btn-primary">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

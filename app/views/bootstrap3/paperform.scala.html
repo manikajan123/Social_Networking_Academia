@@ -1,0 +1,29 @@
+
+@(reverseRoute: play.api.mvc.Call, titleField: Field, authorsField: Field, pagesField: Field
+        , channelField : Field)
+
+    <div class="container">
+      <div id="userArea" class="row">
+        <div class="col-mid-12">
+          <form id="userForm" action="/postAddPaper" method="post">
+            <div class="form-group">
+              <fieldset>
+              <label>Title</label>
+              <input id="@titleField.id" name="@titleField.name" value="@titleField.value.getOrElse("")" class="form-control">
+              <label>authors</label>
+              <input id="@authorsField.id" name="@authorsField.name" value="@authorsField.value.getOrElse("")" class="form-control">
+              <label>Pages</label>
+              <input id ="@pagesField.id" name="@pagesField.name" value="@pagesField.value.getOrElse("")" class="form-control">
+              <label>Channel</label>
+              <select id="@channelField.id" name="@channelField.name" value="@channelField.value.getOrElse("")">
+                <option id= "Journal"> Journal </option>
+                <option id = "Conference"> Conference</option>
+                <option id = "Book"> Book </option>
+              </select>
+              </fieldset>
+              <input id="clickMe" type="button" value="Submit" onclick="submit()" class="btn btn-primary">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>

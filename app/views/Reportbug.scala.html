@@ -1,0 +1,7 @@
+@(page: String,isLoggedIn: Boolean,sp:Int, userInfo: UserInfo, bugForm: Form[views.formdata.ReportBugForm])
+
+@import bootstrap3._
+
+@Main(page,isLoggedIn,sp, userInfo) {
+  @reportbugform(routes.ReportBugs.reportBug(), bugForm("description"), bugForm("projectId"))
+}

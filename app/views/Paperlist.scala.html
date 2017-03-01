@@ -1,0 +1,32 @@
+@(page: String, isLoggedIn: Boolean,sp:Int, userInfo: UserInfo, paperlist: List [Paper])
+
+  @import bootstrap3._
+
+
+  @Main(page, isLoggedIn,sp, userInfo) {
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <h2> Paper Info.</h2>
+          <ul>
+            <table class="table">
+              <tr>
+                <th>Title</th>
+                <th>Authors</th>
+                <th>Pages</th>
+                <th>Channel</th>
+              </tr>
+              @for(paper <- paperlist) {
+                <tr>
+                  <td>@paper.getTitle</td>
+                  <td>@paper.getAuthors</td>
+                  <td>@paper.getPages</td>
+                  <td>@paper.getChannel</td>
+                </tr>
+              }
+            </table>
+          </ul>
+        </div>
+      </div>
+    </div>
+  }

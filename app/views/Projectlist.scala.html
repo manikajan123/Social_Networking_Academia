@@ -1,0 +1,38 @@
+@(page: String, isLoggedIn: Boolean,sp:Int, userInfo: UserInfo, projectlist: List [Project])
+
+  @import bootstrap3._
+
+
+  @Main(page, isLoggedIn,sp, userInfo) {
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <h2> Projects Info.</h2>
+          <ul>
+            <table class="table">
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Cost</th>
+                <th>Due Date</th>
+                <th>Expertise</th>
+              </tr>
+              @for(proj <- projectlist) {
+                <tr>
+                  <td>@proj.getName</td>
+                  <td>@proj.getDescription</td>
+                  <td>@proj.getCost</td>
+                  <td>@proj.getDueDate</td>
+                  <td>Expertise: @proj.getExpertise</td>
+                  @if(proj.getuserId() == userInfo.getUserId()) {
+                    <td><a href="@routes.ProjectController.setProjectStatus(1, proj.getName)" class="btn btn-success btn-xs active" role="button">Set as Finished</a></td>
+                    <td><a href="@routes.ProjectController.setProjectStatus(2, proj.getName)" class="btn btn-success btn-xs active" role="button">Set as Ongoing</a><br></td>
+                  }
+                </tr>
+              }
+            </table>
+                </ul>
+        </div>
+      </div>
+    </div>
+}

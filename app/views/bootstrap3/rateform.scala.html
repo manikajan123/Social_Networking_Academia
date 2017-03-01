@@ -1,0 +1,43 @@
+
+@(reverseRoute: play.api.mvc.Call, rateField: Field, recommendField: Field
+        , projectField: Field, commentsField: Field)
+
+<div class="container">
+  <div id="userArea" class="row">
+    <div class="col-mid-12">
+      <form id="userForm" action="rate/post " method="post">
+        <div class="form-group">
+          <fieldset>
+            <h2>Rate the Service Provider</h2>
+
+            <label>Recommend</label>
+            <select id="@recommendField.id" name="@recommendField.name" value="@recommendField.value.getOrElse("")">
+              <option id = "1">1</option>
+              <option id = "2">2</option>
+              <option id = "3">3</option>
+              <option id = "4">4</option>
+              <option id = "5">5</option>
+            </select>&nbsp&nbsp&nbsp&nbsp
+            <label>Rate</label>
+            <select id="@rateField.id" name="@rateField.name" value="@rateField.value.getOrElse("")">
+              <option id = "1">1</option>
+              <option id = "2">2</option>
+              <option id = "3">3</option>
+              <option id = "4">4</option>
+              <option id = "5">5</option>
+            </select>
+            <br>
+
+            <label>Project Name</label>
+            <input id ="@projectField.id" name="@projectField.name" value="@projectField.value.getOrElse("")" class="form-control">
+
+            <label>Commets</label>
+            <input id ="@commentsField.id" name="@commentsField.name" value="@commentsField.value.getOrElse("")" class="form-control">
+
+          </fieldset>
+          <input id="clickMe" type="button" value="Submit" onclick="submit()" class="btn btn-primary">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+@(page: String,isLoggedIn: Boolean,sp:Int, userInfo: UserInfo, projectForm: Form[views.formdata.ProjectFormData])
+
+@import bootstrap3._
+
+@Main(page,isLoggedIn,sp, userInfo) {
+    @projectform(routes.ProjectController.addProject(), projectForm("name"), projectForm("desc"), projectForm("cost"),
+        projectForm("expertise"), projectForm("dueDate"), projectForm("status"))
+}

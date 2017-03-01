@@ -1,0 +1,29 @@
+@(reverseRoute: play.api.mvc.Call, nameField: Field, descField: Field, priceField : Field ,expertiseField: Field
+        , dueDateField : Field, statusField : Field )
+
+<div class="container">
+  <div id="userArea" class="row">
+    <div class="col-mid-12">
+      <form id="userForm" action="projectadd" method="post">
+        <div class="form-group">
+          <fieldset>
+            <label>Name</label>
+            <input id="@nameField.id" name="@nameField.name" value="@nameField.value.getOrElse("")" class="form-control">
+            <label>Description</label>
+            <input id="@descField.id" name="@descField.name" value="@descField.value.getOrElse("")" class="form-control">
+            <label>Expertise</label>
+            <input id ="@expertiseField.id" name="@expertiseField.name" value="@expertiseField.value.getOrElse("")" class="form-control">
+            <label>DueDate</label>
+            <p> <input type="text" id="@dueDateField.id"></p>
+            <label>Price field</label>
+            <input id="@priceField.id" name="@priceField.name" value="@priceField.value.getOrElse("")" class="form-control">
+            <label>Status field</label>
+            <input id="@statusField.id" name="@statusField.name" value="@statusField.value.getOrElse("")" class="form-control">
+            <br>
+          </fieldset>
+          <input id="clickMe" type="button" value="Submit" onclick="submit()" class="btn btn-primary">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

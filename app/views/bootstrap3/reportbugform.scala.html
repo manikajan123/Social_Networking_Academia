@@ -1,0 +1,26 @@
+
+@(reverseRoute: play.api.mvc.Call,descriptionField:Field, projectIdField: Field)
+
+<div class="container">
+  <div id="userArea" class="row">
+    <div class="col-mid-12">
+      <form id="userForm" action="reportbugs/post" method="post">
+        <div class="form-group">
+          <fieldset>
+
+            <label>Description</label>
+            <input id="@descriptionField.id" name="@descriptionField.name" value="@descriptionField.value.getOrElse("")" class="form-control">
+
+
+            <label>ProjectName</label>
+            <input id="@projectIdField.id" name="@projectIdField.name" value="@projectIdField.value.getOrElse("")" class="form-control">
+
+
+          </fieldset>
+          <br>
+          <input id="clickMe" type="button" value="Submit" onclick="submit()" class="btn btn-primary">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

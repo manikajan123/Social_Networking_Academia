@@ -1,0 +1,11 @@
+@(page: String,isLoggedIn: Boolean,sp:Int, userInfo: UserInfo, rateForm: Form[views.formdata.RateFormData])
+
+@import bootstrap3._
+
+@Main(page,isLoggedIn,sp, userInfo) {
+  <div class="container">
+    @rateform(routes.UserRegister.postRegister(), rateForm("rate"), rateForm("recommend"), rateForm("projectId"), rateForm("comments"))
+  </div>
+}
+
+

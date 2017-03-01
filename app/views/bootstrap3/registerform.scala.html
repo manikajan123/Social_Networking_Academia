@@ -1,0 +1,38 @@
+
+@(reverseRoute: play.api.mvc.Call, userIdField: Field, emailField: Field, passwordField: Field
+        , roleField : Field, questionField : Field, sanswerField : Field )
+
+    <div class="container">
+      <div id="userArea" class="row">
+        <div class="col-mid-12">
+          <form id="userForm" action="Register/postRegister" method="post">
+            <div class="form-group">
+              <fieldset>
+              <label>UserId</label>
+              <input id="@userIdField.id" name="@userIdField.name" value="@userIdField.value.getOrElse("")" class="form-control">
+              <label>password</label>
+              <input  type="password" id="@passwordField.id" name="@passwordField.name" value="@passwordField.value.getOrElse("")" class="form-control">
+              <label>Email</label>
+              <input id ="@emailField.id" name="@emailField.name" value="@emailField.value.getOrElse("")" class="form-control">
+              <label>Role</label>
+              <select id="@roleField.id" name="@roleField.name" value="@roleField.value.getOrElse("")">
+                <option id= "Annonymous"> Annon. </option>
+                <option id = "suser"> Service User</option>
+                <option id = "sprovider"> Service Provider</option>
+              </select>
+              <select id="@questionField.id" name="@questionField.name" value="@questionField.value.getOrElse("")" class="form-control">
+                <option id = "1">What was your first school?</option>
+                <option id = "2">Which street did you live on during childhood?</option>
+                <option id = "3">What was your mother's maiden name?</option>
+                <option id = "4">What's your childhood best friend's name?</option>
+              </select>
+              <label>Security answers</label>
+              <input id="@sanswerField.id" name="@sanswerField.name" value="@sanswerField.value.getOrElse("")" class="form-control">
+              <br>
+              </fieldset>
+              <input id="clickMe" type="button" value="Submit" onclick="submit()" class="btn btn-primary">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>

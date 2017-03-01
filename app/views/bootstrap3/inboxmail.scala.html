@@ -1,0 +1,27 @@
+@(page: String, isLoggedIn: Boolean,sp:Int, userInfo: UserInfo, emaillist: List [Mail])
+
+<div class="tab-content">
+  <div class="tab-pane active" id="inbox">
+
+    <div class="container">
+      <div class="content-container clearfix">
+        <div class="col-md-12">
+          <h1 class="content-title">Inbox</h1>
+
+          <ul class="mail-list">
+            @for(email <- emaillist) {
+              <li>
+                <a href="">
+
+                  <span class="mail-sender">@email.userid</span>
+                  <span class="mail-subject">@email.subject</span>
+                  <span class="mail-message-preview">@email.content</span>
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
